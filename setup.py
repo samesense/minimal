@@ -20,7 +20,7 @@ from setuptools import setup, find_packages
 root = path.abspath(path.dirname(__file__))
 
 with open(path.join(root, 'README.rst'), encoding='utf-8') as f:
-    long_description = f.read()
+    long_description = 'Not for use'
 
 with open(path.join(root, 'LICENSE.txt'), encoding='utf-8') as f:
     license = f.read()
@@ -31,14 +31,16 @@ with open(path.join(root, 'VERSION.txt'), encoding='utf-8') as f:
 
 
 setup(
-    name='minimal',
+    name='mniml',
     # See https://packaging.python.org/single_source_version/
+    python_requires='>=3.7',
     version=version,
+    long_description_content_type='text/markdown',
     description='A minimal Python package',
     long_description=long_description,
     url='https://github.com/geoffrey-a-reed/minimal',
     author='Geoffrey A. Reed',
-    author_email='geoffrey.a.reed@gmail.com',
+    author_email='evansj@email.chop.edu',
     license=license,
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -46,16 +48,12 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
     ],
     keywords='sample setuptools development',
-    packages=find_packages(),
-    extras_require={
-        '': ['pytest'],
-    },
+    packages=['mniml'],
+    install_requires=['apache-beam[gcp]'],
     package_data={
         '': ['VERSION.txt', 'LICENSE.txt']
     },
